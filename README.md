@@ -6,7 +6,7 @@
 - 당근마켓과 같은 중고거래 플랫폼이 성행하면서 중고거래에 대한 거부감이 줄어드는 상황에 맞춰 다양한 물건을 대여할 수 있는 플랫폼이 있다면 좋겠다고 생각하여 기획하였습니다.
 - [시연영상 바로가기](https://youtu.be/HY60JGhJhrY)
 
-## 아키택처
+## 아키텍처
 <img width="392" alt="image" src="https://user-images.githubusercontent.com/90334610/224259587-7917922e-f525-4852-a4bc-8ece12fa1a07.png">
 
 ## 개발환경
@@ -24,3 +24,5 @@
 - 관심상품 설정
 - 채팅
 
+## API 명세서
+[API 명세서 바로가기](https://documenter.getpostman.com/view/18374883/UzQuNQdk)
