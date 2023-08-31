@@ -38,6 +38,6 @@ out/
 ### VS Code ###
 .vscode/
 
-main/resources/application.properties
+main/resources/application.yml
 
 application_log/
