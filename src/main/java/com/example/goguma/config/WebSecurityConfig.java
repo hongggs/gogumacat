@@ -27,8 +27,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+        http.csrf().disable()
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.headers().frameOptions().disable();
+
         http.authorizeRequests()
                 // 폴더를 login 없이 허용
                 .antMatchers("/js/**").permitAll()
@@ -43,6 +45,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/topic/**").permitAll()
                 .antMatchers("/app/**").permitAll()
                 .antMatchers("/post/top8", "/post/all","/post/search","/post/detail/**").permitAll()
+                .antMatchers("/error").permitAll()
+                //swagger url 허용
+                .antMatchers(
+                        "/v3/api-docs",
+                        "/swagger*/**").permitAll()
                 // 그 외 모든 요청은 인증과정 필요
                 .anyRequest().authenticated()
                 .and()
