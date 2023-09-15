@@ -18,10 +18,6 @@ public class ChatMessage extends Timestamped{
     @Column(name = "msg_id")
     Long id;
 
-
-    @Enumerated(value = EnumType.STRING)
-    private MessageType type;
-
     //채팅방 ID
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
     @JoinColumn(name = "room_id", nullable = false)
@@ -34,6 +30,10 @@ public class ChatMessage extends Timestamped{
 
     //내용
     private String message;
+
+
+    @Enumerated(value = EnumType.STRING)
+    private MessageType type;
 
     public void addRoom(ChatRoom room) {
         this.room = room;

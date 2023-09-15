@@ -18,7 +18,6 @@ public class ChatRoom extends Timestamped{
 
     @Id
     private String roomId;
-    private String roomName;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="post_id")
@@ -29,6 +28,9 @@ public class ChatRoom extends Timestamped{
     @JoinColumn(name= "user_id")
     @JsonIgnore
     private User user;
+
+    @Column(nullable = false)
+    private String roomName;
 
     @JsonIgnore
     @OneToMany(mappedBy = "room", cascade = CascadeType.ALL)

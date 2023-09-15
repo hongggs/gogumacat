@@ -10,45 +10,39 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Setter
-@Getter // get 함수를 일괄적으로 만들어줍니다.
-@NoArgsConstructor // 기본 생성자를 만들어줍니다.
+//@Setter
+@Getter
+@NoArgsConstructor
 @Entity // DB 테이블 역할을 합니다.
 public class User extends Timestamped {
 
-    // ID가 자동으로 생성 및 증가합니다.
-
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     private Long id;
-    // 반드시 값을 가지도록 합니다.
 
+    // 반드시 값을 가지도록 합니다.
     @Column(nullable = false)
     private String username;
+
     @Column(nullable = false)
     private String password;
 
     @Column(nullable = false)
     private String nickname;
 
-    @Column(nullable = true)
+    @Column(nullable = false)
     private String address;
 
-    @Column(nullable = true)
-    private Long kakaoId;
-
-    @Column(nullable = true)
     private String profilePic;
 
-    @Column(nullable = true)
     private String profileInfo;
 
-    @Column(nullable = true)
     private String accessToken;
 
-    @Column(nullable = true)
     private String refreshToken;
+
+    private Long kakaoId;
 
     @JsonIgnore
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)

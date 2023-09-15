@@ -16,14 +16,6 @@ public class Order extends Timestamped{
     @Column(name = "order_id")
     private Long id;
 
-    private String startDate;
-
-    private String endDate;
-
-    private int price;
-
-    private boolean isChecked;
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="post_id")
     private Post post;
@@ -31,6 +23,14 @@ public class Order extends Timestamped{
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="user_id")
     private User user;
+
+    private String startDate;
+
+    private String endDate;
+
+    private int price;
+
+    private boolean isChecked;
 
     public Order(String startDate, String endDate, int price) {
         this.startDate = startDate;
